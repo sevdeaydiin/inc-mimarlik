@@ -3,19 +3,36 @@
 import { motion } from 'framer-motion';
 import Button from './ui/Button';
 import { colors } from '../constants/colors';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src="/projects/background.jpeg"
+          alt="Interior Design Background"
+          fill
+          className="object-cover object-center"
+          quality={95}
+          priority={true}
+          sizes="100vw"
+        />
+        {/* Dark Overlay with Gradient */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/75"></div>
+      </div>
+
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="absolute inset-0 opacity-[0.02] z-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `linear-gradient(${colors.primary} 1px, transparent 1px), linear-gradient(90deg, ${colors.primary} 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
         }} />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-8 text-center" style={{ paddingTop: '140px', paddingBottom: '120px' }}>
+      <div className="relative z-20 max-w-5xl mx-auto px-8 text-center" style={{ paddingTop: '140px', paddingBottom: '120px' }}>
         {/* Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,10 +52,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-10"
         >
-          <span className="block font-playfair text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal text-text-primary leading-[1.1] tracking-tight" style={{ marginBottom: '12px' }}>
+          <span className="block font-playfair text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal leading-[1.1] tracking-tight" style={{ marginBottom: '12px', color: '#fff6eb' }}>
             Mekanlar
           </span>
-          <span className="block font-playfair text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal text-text-primary leading-[1.1] tracking-tight relative inline-block" style={{ marginTop: '12px', marginBottom: '12px' }}>
+          <span className="block font-playfair text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal leading-[1.1] tracking-tight relative inline-block" style={{ marginTop: '12px', marginBottom: '12px', color: '#fff6eb' }}>
             Hayalleri
             <motion.span
               className="absolute left-0 right-0 h-0.5 lg:h-1"
@@ -48,7 +65,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
             />
           </span>
-          <span className="block font-playfair text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal text-text-primary leading-[1.1] tracking-tight" style={{ marginTop: '12px' }}>
+          <span className="block font-playfair text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal leading-[1.1] tracking-tight" style={{ marginTop: '12px', color: '#fff6eb' }}>
             Şekillendirir
           </span>
         </motion.h1>
@@ -58,7 +75,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-base lg:text-lg text-text-secondary max-w-2xl mx-auto mb-10 lg:mb-12 leading-relaxed font-light" style={{ marginBottom: '10px', marginTop: '10px' }}
+          className="text-base lg:text-lg max-w-2xl mx-auto mb-10 lg:mb-12 leading-relaxed font-light" style={{ marginBottom: '10px', marginTop: '10px', color: '#fff6eb' }}
         >
           Modern mimarlık anlayışıyla, yaşam alanlarınızı sanatsal ve işlevsel
           çözümlerle tasarlıyoruz.

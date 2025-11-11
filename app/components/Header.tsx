@@ -29,10 +29,10 @@ export default function Header() {
       <div className="absolute top-0 left-8">
         <Link href="/" className="flex-shrink-0">
           <div className="flex flex-col items-start">
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-normal text-primary leading-none tracking-tight">
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-normal leading-none tracking-tight" style={{ color: '#fff6eb' }}>
               Inc.
             </span>
-            <span className="text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] xl:text-[11px] font-light tracking-[0.3em] text-primary uppercase mt-0.5 md:mt-1">
+            <span className="text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] xl:text-[11px] font-light tracking-[0.3em] uppercase mt-0.5 md:mt-1" style={{ color: '#fff6eb' }}>
               ARCHITECTURE
             </span>
           </div>
@@ -43,12 +43,14 @@ export default function Header() {
       <div className="hidden lg:flex justify-center pt-12">
         <nav className="flex items-center">
           <div
-            className={`transition-all duration-300 ${
-              isScrolled
-                ? 'bg-white/95 backdrop-blur-lg shadow-lg'
-                : 'bg-white/90 backdrop-blur-md shadow-md'
-            } rounded-full`}
-            style={{ paddingLeft: '48px', paddingRight: '48px', paddingTop: '12px', paddingBottom: '12px' }}
+            className="transition-all duration-300 backdrop-blur-lg shadow-lg rounded-full"
+            style={{ 
+              paddingLeft: '48px', 
+              paddingRight: '48px', 
+              paddingTop: '12px', 
+              paddingBottom: '12px',
+              backgroundColor: isScrolled ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 1)'
+            }}
           >
             <ul className="flex items-center" style={{ gap: '84px' }}>
               {navItems.map((item) => (
@@ -83,9 +85,9 @@ export default function Header() {
           style={{ gap: '6px' }}
           aria-label="Menu"
         >
-          <span className="w-5 sm:w-6 h-0.5 bg-primary rounded-full transition-all duration-300" />
-          <span className="w-5 sm:w-6 h-0.5 bg-primary rounded-full transition-all duration-300" />
-          <span className="w-5 sm:w-6 h-0.5 bg-primary rounded-full transition-all duration-300" />
+          <span className="w-5 sm:w-6 h-0.5 rounded-full transition-all duration-300" style={{ backgroundColor: '#fff6eb' }} />
+          <span className="w-5 sm:w-6 h-0.5 rounded-full transition-all duration-300" style={{ backgroundColor: '#fff6eb' }} />
+          <span className="w-5 sm:w-6 h-0.5 rounded-full transition-all duration-300" style={{ backgroundColor: '#fff6eb' }} />
         </button>
       </div>
     </header>
