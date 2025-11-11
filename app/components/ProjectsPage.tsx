@@ -100,7 +100,7 @@ const ProjectsPage = () => {
       : PROJECTS.filter((project) => project.category === selectedCategory);
 
   return (
-  <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom px-2 sm:px-6 lg:px-16 py-10 sm:py-16 lg:py-24">
+  <main className="min-h-screen bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom px-2 sm:px-6 lg:px-16 flex flex-col items-center" style={{paddingTop: '8rem', paddingBottom: '2rem'}}>
       {/* Başlık Bölümü */}
       <section className="pb-10 sm:pb-14 lg:pb-20">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center">
@@ -146,13 +146,27 @@ const ProjectsPage = () => {
               </motion.button>
             ))}
           </motion.div>
+          
+          {/* Boş Sonuç Mesajı */}
+          {filteredProjects.length === 0 && (
+            <motion.div
+              className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center mt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <p className="font-inter text-lg text-text-secondary">
+                Bu kategoride henüz proje bulunmamaktadır.
+              </p>
+            </motion.div>
+          )}
         </div>
       </section>
 
       {/* Projeler Grid */}
-      <section className="pt-10 sm:pt-16 pb-20 sm:pb-28 lg:pb-36">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <motion.div
+      {filteredProjects.length > 0 && (
+        <section className="pt-10 sm:pt-16 pb-20 sm:pb-28 lg:pb-36">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             initial="hidden"
             animate="visible"
@@ -220,22 +234,10 @@ const ProjectsPage = () => {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Boş Sonuç */}
-          {filteredProjects.length === 0 && (
-            <motion.div
-              className="text-center py-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <p className="font-inter text-lg text-text-secondary">
-                Bu kategoride henüz proje bulunmamaktadır.
-              </p>
             </motion.div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
       {/* Modal */}
       <AnimatePresence>
