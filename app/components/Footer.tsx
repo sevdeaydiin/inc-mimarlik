@@ -37,7 +37,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/#about"
+                  href="/about"
                   className="text-[#B8976A]/80 hover:text-[#B8976A] transition-colors duration-200"
                 >
                   Hakkımızda
@@ -45,7 +45,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/#projects"
+                  href="/projects"
                   className="text-[#B8976A]/80 hover:text-[#B8976A] transition-colors duration-200"
                 >
                   Projeler

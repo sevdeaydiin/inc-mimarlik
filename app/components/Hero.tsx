@@ -72,11 +72,11 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ marginBottom: '60px' }}
         >
-          <Button href="#projects" variant="primary">
+          <Button href="/projects" variant="primary">
             Projelerimizi Keşfedin
           </Button>
 
-          <Button href="#contact" variant="outline">
+          <Button href="/contact" variant="outline">
             İletişime Geçin
           </Button>
         </motion.div>

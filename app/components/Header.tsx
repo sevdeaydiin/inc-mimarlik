@@ -24,10 +24,7 @@ export default function Header() {
 
   return (
         <header
-      className={`fixed left-0 right-0 z-50 ${
-        isScrolled ? 'top-6' : 'top-10'
-      } transition-all duration-300`}
-    >
+      className="absolute left-0 right-0 z-50 top-6">
       {/* Logo - Always Top Left with 8px padding */}
       <div className="absolute top-0 left-8">
         <Link href="/" className="flex-shrink-0">
