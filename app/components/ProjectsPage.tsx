@@ -1,103 +1,62 @@
 
 "use client";
 import { SPACING } from "../constants/spacing";
+import { ProjectCategory, getCategoryDisplayName, CATEGORIES } from "../constants/projectCategories";
+import { ProjectsPageProject } from "../types/ProjectsPageProject";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { loadProjects } from "@/app/lib/projectLoader";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-enum ProjectCategory {
-  ALL = "ALL",
-  RESIDENTIAL = "RESIDENTIAL",
-  INTERIOR = "INTERIOR", 
-  OFFICE = "OFFICE",
-  LANDSCAPE = "LANDSCAPE"
-}
-
-interface Project {
-  id: number;
-  title: string;
-  category: ProjectCategory;
-  coverImage: string;
-  images: string[];
-  description: string;
-}
-
-const PROJECTS: Project[] = [
-  {
-    id: 1,
-    title: "Doğal Işıkla Bütünleşen Modern Yatak Odası",
-    category: ProjectCategory.INTERIOR,
-    coverImage: "/projects/proje1-1.jpeg",
-    images: [
-      "/projects/proje1-1.jpeg",
-      "/projects/proje1-2.jpeg",
-      "/projects/proje1-3.jpeg",
-      "/projects/proje1-4.jpeg",
-      "/projects/proje1-5.jpeg",
-      "/projects/proje1-6.jpeg",
-    ],
-    description: "Minimalist tasarıma sahip, ışık ve mekan oyunuyla hazırlanmış çağdaş konut projesi.",
-  },
-  {
-    id: 2,
-    title: "Modern-Lüks Salon Tasarımı",
-    category: ProjectCategory.INTERIOR,
-    coverImage: "/projects/proje2-1.jpeg",
-    images: [
-      "/projects/proje2-1.jpeg",
-      "/projects/proje2-2.jpeg",
-      "/projects/proje2-3.jpeg",
-      "/projects/proje2-4.jpeg",
-      "/projects/proje2-5.jpeg",
-      "/projects/proje2-6.jpeg",
-      "/projects/proje2-7.jpeg",
-      "/projects/proje2-8.jpeg",
-      "/projects/proje2-9.jpeg",
-    ],
-    description: "Modern ofis mekanı, çalışan verimliliğini artıran ergonomik tasarım ilkeleriyle oluşturulmuş.",
-  },
-];
-
-const CATEGORIES = [
-  ProjectCategory.ALL,
-  ProjectCategory.RESIDENTIAL,
-  ProjectCategory.OFFICE,
-  ProjectCategory.INTERIOR,
-  ProjectCategory.LANDSCAPE
-];
-
-const getCategoryDisplayName = (category: ProjectCategory): string => {
-  switch (category) {
-    case ProjectCategory.ALL:
-      return "Tümü";
-    case ProjectCategory.RESIDENTIAL:
-      return "Konut";
-    case ProjectCategory.OFFICE:
-      return "Ofis";
-    case ProjectCategory.INTERIOR:
-      return "İç Mekan";
-    case ProjectCategory.LANDSCAPE:
-      return "Peyzaj";
-    default:
-      return category;
-  }
-};
-
 const ProjectsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>(ProjectCategory.ALL);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory | string>(ProjectCategory.ALL);
+  const [selectedProject, setSelectedProject] = useState<ProjectsPageProject | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projects, setProjects] = useState<ProjectsPageProject[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const loadedProjects = await loadProjects();
+        // Transform Project model instances to ProjectsPageProject interface
+        const transformedProjects: ProjectsPageProject[] = loadedProjects.map((project) => ({
+          id: project.id as number,
+          title: project.name,
+          category: project.category || "İç Mekan",
+          coverImage: project.getImages()[0] || "/projects/proje1-1.jpeg",
+          images: project.getImages(),
+          description: project.description,
+        }));
+        setProjects(transformedProjects);
+      } catch (error) {
+        console.error("Failed to load projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []);
 
   const filteredProjects =
     selectedCategory === ProjectCategory.ALL
-      ? PROJECTS
-      : PROJECTS.filter((project) => project.category === selectedCategory);
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
+
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom px-2 sm:px-6 lg:px-16 flex items-center justify-center" style={{paddingTop: '8rem', paddingBottom: '2rem'}}>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-accent"></div>
+      </main>
+    );
+  }
 
   return (
   <main className="min-h-screen bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom px-2 sm:px-6 lg:px-16 flex flex-col items-center" style={{paddingTop: '8rem', paddingBottom: '2rem'}}>

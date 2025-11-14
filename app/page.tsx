@@ -2,15 +2,42 @@
 
 import Header from './components/Header';
 import Hero from './components/Hero';
+import CenteredCarousel from './components/CenteredCarousel';
 import SmoothScrollProvider from './components/SmoothScrollProvider';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { loadProjects } from './lib/projectLoader';
+import Project from './models/Project';
 
 export default function Home() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const loadedProjects = await loadProjects();
+        setProjects(loadedProjects);
+      } catch (error) {
+        console.error('Failed to load projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []);
+
   return (
     <SmoothScrollProvider>
       <div className="min-h-screen">
         <Header />
         <Hero />
+        
+        {/* Project Slider Section */}
+        {!loading && projects.length > 0 && (
+          <CenteredCarousel projects={projects} />
+        )}
         
         {/* About Section */}
         <section id="about" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom py-20 sm:py-28 lg:py-36">

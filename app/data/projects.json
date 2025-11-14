@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "name": "Doğal Işıkla Bütünleşen Modern Yatak Odası",
+    "description": "Minimalist tasarıma sahip, ışık ve mekan oyunuyla hazırlanmış çağdaş konut projesi.",
+    "category": "İç Mekan",
+    "images": [
+      "/projects/proje1-1.jpeg",
+      "/projects/proje1-2.jpeg",
+      "/projects/proje1-3.jpeg",
+      "/projects/proje1-4.jpeg",
+      "/projects/proje1-5.jpeg",
+      "/projects/proje1-6.jpeg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Modern-Lüks Salon Tasarımı",
+    "description": "Modern ofis mekanı, çalışan verimliliğini artıran ergonomik tasarım ilkeleriyle oluşturulmuş.",
+    "category": "İç Mekan",
+    "images": [
+      "/projects/proje2-1.jpeg",
+      "/projects/proje2-2.jpeg",
+      "/projects/proje2-3.jpeg",
+      "/projects/proje2-4.jpeg",
+      "/projects/proje2-5.jpeg",
+      "/projects/proje2-6.jpeg",
+      "/projects/proje2-7.jpeg",
+      "/projects/proje2-8.jpeg",
+      "/projects/proje2-9.jpeg"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Aydınlık ve Fonksiyonel Yaşam Alanı",
+    "description": "Geniş pencerelerle doğal ışığın içeri dolduğu, fonksiyonel ve modern yaşam alanı tasarımı.",
+    "category": "Konut",
+    "images": [
+      "/projects/proje3-1.jpeg",
+      "/projects/proje3-2.jpeg",
+      "/projects/proje3-3.jpeg",
+      "/projects/proje3-4.jpeg",
+      "/projects/proje3-5.jpeg",
+      "/projects/proje3-6.jpeg",
+      "/projects/proje3-7.jpeg",
+      "/projects/proje3-8.jpeg",
+      "/projects/proje3-9.jpeg"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Zarif ve Modern Mutfak Tasarımı",
+    "description": "Zarif detaylarla öne çıkan, modern çizgilere sahip fonksiyonel mutfak projesi.",
+    "category": "Konut",
+    "images": [
+      "/projects/proje4-1.jpeg",
+      "/projects/proje4-2.jpeg",
+      "/projects/proje4-3.jpeg",
+      "/projects/proje4-5.jpeg",
+      "/projects/proje4-6.jpeg",
+      "/projects/proje4-7.jpeg"
+    ]
+  }
+]
