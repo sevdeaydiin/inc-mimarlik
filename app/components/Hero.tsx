@@ -32,7 +32,7 @@ export default function Hero() {
         }} />
       </div>
 
-      <div className="relative z-20 max-w-5xl mx-auto px-8 text-center" style={{ paddingTop: '140px', paddingBottom: '120px' }}>
+      <div className="relative z-20 max-w-5xl mx-auto text-center" style={{ paddingTop: '140px', paddingBottom: '120px', paddingLeft: '1rem', paddingRight: '1rem' }}>
         {/* Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

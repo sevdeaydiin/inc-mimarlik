@@ -5,7 +5,7 @@ import { FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
   return (
-  <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom px-4 py-12 sm:px-6 sm:py-20 lg:py-28">
+  <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom py-12 sm:py-20 lg:py-28">
       {/* Başlık ve açıklama - Proje standartlarına uygun */}
       <motion.section
         className="w-full max-w-xl text-center mb-12 lg:mb-16 px-2"

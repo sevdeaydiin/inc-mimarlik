@@ -52,14 +52,14 @@ const ProjectsPage = () => {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom px-2 sm:px-6 lg:px-16 flex items-center justify-center" style={{paddingTop: '8rem', paddingBottom: '2rem'}}>
+      <main className="min-h-screen bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom flex items-center justify-center" style={{paddingTop: '8rem', paddingBottom: '2rem'}}>
         <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-accent"></div>
       </main>
     );
   }
 
   return (
-  <main className="min-h-screen bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom px-2 sm:px-6 lg:px-16 flex flex-col items-center" style={{paddingTop: '8rem', paddingBottom: '2rem'}}>
+  <main className="min-h-screen bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom flex flex-col items-center" style={{paddingTop: '8rem', paddingBottom: '2rem'}}>
       {/* Başlık Bölümü */}
       <section className="pb-10 sm:pb-14 lg:pb-20">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center">

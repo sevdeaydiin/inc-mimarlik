@@ -41,7 +41,7 @@ export default function Home() {
         
         {/* About Section */}
         <section id="about" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-bg-gradient-top to-bg-gradient-bottom py-20 sm:py-28 lg:py-36">
-          <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <div className="max-w-5xl mx-auto text-center mobile-px" style={{paddingLeft: '1rem', paddingRight: '1rem'}}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}

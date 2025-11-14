@@ -231,7 +231,7 @@ export default function CenteredCarousel({
       aria-roledescription="carousel"
       aria-label="Proje Galerisi"
     >
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto mobile-px" style={{paddingLeft: '1rem', paddingRight: '1rem'}}>
         {/* Başlık */}
         <motion.div
           className="text-center mb-12 sm:mb-16 lg:mb-20"
